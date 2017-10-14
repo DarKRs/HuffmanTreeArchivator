@@ -19,3 +19,12 @@ C:\Users\DarKRs\Desktop\HuffmanCode\HuffmanCode\obj\Debug\HuffmanCode.csprojReso
 C:\Users\DarKRs\Desktop\HuffmanCode\HuffmanCode\obj\Debug\HuffmanCode.Form1.resources
 C:\Users\DarKRs\Desktop\HuffmanCode\HuffmanCode\obj\Debug\HuffmanCode.Properties.Resources.resources
 C:\Users\DarKRs\Desktop\HuffmanCode\HuffmanCode\obj\Debug\HuffmanCode.csproj.GenerateResource.Cache
+C:\GitHub\jom\HuffmanTreeArchivator\HuffmanCode\bin\Debug\HuffmanCode.exe.config
+C:\GitHub\jom\HuffmanTreeArchivator\HuffmanCode\obj\Debug\HuffmanCode.exe
+C:\GitHub\jom\HuffmanTreeArchivator\HuffmanCode\obj\Debug\HuffmanCode.pdb
+C:\GitHub\jom\HuffmanTreeArchivator\HuffmanCode\bin\Debug\HuffmanCode.exe
+C:\GitHub\jom\HuffmanTreeArchivator\HuffmanCode\bin\Debug\HuffmanCode.pdb
+C:\GitHub\jom\HuffmanTreeArchivator\HuffmanCode\obj\Debug\HuffmanCode.csprojResolveAssemblyReference.cache
+C:\GitHub\jom\HuffmanTreeArchivator\HuffmanCode\obj\Debug\HuffmanCode.Form1.resources
+C:\GitHub\jom\HuffmanTreeArchivator\HuffmanCode\obj\Debug\HuffmanCode.Properties.Resources.resources
+C:\GitHub\jom\HuffmanTreeArchivator\HuffmanCode\obj\Debug\HuffmanCode.csproj.GenerateResource.Cache

@@ -41,15 +41,17 @@
             this.CodeInFile = new System.Windows.Forms.Button();
             this.DecodeInFile = new System.Windows.Forms.Button();
             this.SaveFile = new System.Windows.Forms.SaveFileDialog();
+            this.OpenEncodeText = new System.Windows.Forms.Button();
+            this.loadfile2 = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(12, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(133, 45);
+            this.button1.Size = new System.Drawing.Size(146, 45);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Выбрать файл";
+            this.button1.Text = "Открыть исходный текст";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -151,11 +153,26 @@
             this.DecodeInFile.UseVisualStyleBackColor = true;
             this.DecodeInFile.Click += new System.EventHandler(this.DecodeInFile_Click);
             // 
+            // OpenEncodeText
+            // 
+            this.OpenEncodeText.Location = new System.Drawing.Point(859, 12);
+            this.OpenEncodeText.Name = "OpenEncodeText";
+            this.OpenEncodeText.Size = new System.Drawing.Size(201, 45);
+            this.OpenEncodeText.TabIndex = 11;
+            this.OpenEncodeText.Text = "Открыть закодированный текст";
+            this.OpenEncodeText.UseVisualStyleBackColor = true;
+            this.OpenEncodeText.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // loadfile2
+            // 
+            this.loadfile2.FileName = "openFileDialog1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1123, 483);
+            this.Controls.Add(this.OpenEncodeText);
             this.Controls.Add(this.DecodeInFile);
             this.Controls.Add(this.CodeInFile);
             this.Controls.Add(this.button2);
@@ -189,6 +206,8 @@
         private System.Windows.Forms.Button CodeInFile;
         private System.Windows.Forms.Button DecodeInFile;
         private System.Windows.Forms.SaveFileDialog SaveFile;
+        private System.Windows.Forms.Button OpenEncodeText;
+        private System.Windows.Forms.OpenFileDialog loadfile2;
     }
 }
 
