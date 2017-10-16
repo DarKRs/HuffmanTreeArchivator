@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Collections;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace HuffmanCode
 {
@@ -63,6 +64,61 @@ namespace HuffmanCode
         {
             return Root;
         }
+        
+        public void createNode(string[] tree)
+        {
+            Node Root = new Node();
+            Node currrentNode = new Node();
+            Node parr = new Node();
+            char[] code = { ' ' };
+            char[] symbol = { ' ' };
+            List<string> tre = new List<string>();
+            for(int i=0; i< tree.Length; i++)
+            {
+                tre.Add(tree[i]);
+                
+            }
+           tre = tre.OrderBy(x => x.Length).ToList<string>(); tre.Reverse();
+            for (int i = 0; i < tre.Count; i++)
+            {
+                
+                var re = new Regex("'");
+                string clr = re.Replace(tre[i], "");
+                string[] clear = clr.Split(':'); clear[1] += "$";
+
+                symbol = clear[0].ToCharArray();
+                code = clear[1].ToCharArray();
+
+                for (int j = 0; j < code.Length; j++)
+                {
+
+                    if (code[j] == '$')
+                    {
+                        currrentNode.Symbol = symbol[0];
+                        nodes.Add(currrentNode);
+                    }
+                    if (code[j] == '0')
+                    {
+                        if (j == 0) { Root.Left = parr; currrentNode = parr; }
+                        else {
+                            currrentNode.Left = parr;
+                            currrentNode = currrentNode.Left; }
+                    }
+                    if (code[j] == '1')
+                    {
+                        if (j == 0) { Root.Right = parr; currrentNode = parr; }
+                        else
+                        {
+                            currrentNode.Right = parr;
+                            currrentNode = currrentNode.Right; }
+                        
+                    }
+                }
+            
+            }
+            int iasd = 1;
+
+        }
 
         public BitArray Encode(string source)
         {
@@ -117,4 +173,5 @@ namespace HuffmanCode
         }
 
     }
+ 
 }

@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -141,22 +142,13 @@ namespace HuffmanCode
             loadFile.ShowDialog();
             string path = loadFile.FileName;
             string text = "";
-            byte[] buf = new byte[1024];
-            char[] buff = new char[1024];
+            Dictionary<string, char> decodes = new Dictionary<string, char>();
+
+            char[] buff = new char[3];
             FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read);
-            /*byte[] buff;
-            
-            if (loadFile.FileName != "") //если в окне была нажата кнопка "ОК"
-            {
-                BinaryReader br = new BinaryReader(fs3);
-                
-                    text += br.Read(buff,0,fs3.Length);
-                    text += "\n";
-                EncodedText.Text = text;s
-                br.Close();
-            }*/
             StreamReader sr = new StreamReader(fs);
             sr.Read(buff, 0, 3);
+            char[] buf = new char[fs.Length];
             string lnght = sr.ReadLine();
             int lenght = Convert.ToInt32(lnght);
             string[] tr = new string[lenght];
@@ -167,15 +159,40 @@ namespace HuffmanCode
                 {
                     tr[i] += "\n";
                     tr[i] += sr.ReadLine();
-                    
+                }
+                var re = new Regex("'");
+                string clr = re.Replace(tr[i], "");
+                string[] clear = clr.Split(':');
+                char[] symb = clear[0].ToCharArray();
+                string code = clear[1];
+                decodes.Add(code, symb[0]);
+            }
+       //     huffmanTree.createNode(tr);
+
+            BinaryReader br = new BinaryReader(fs);
+            int dli = Convert.ToInt32(fs.Length - fs.Position);
+            // br.Read(buf, Convert.ToInt32(fs.Position),dli);
+
+            var fileName = path;
+            string TextCode = "";
+            var array = new BitArray(br.ReadBytes(dli));
+            foreach (bool bit in array)
+            {
+                TextCode += (bit ? 1 : 0);
+            }
+            StreamWriter sw = new StreamWriter("decod.txt");
+            string buffer = "";
+            char[] TextToChar = TextCode.ToCharArray();
+            for (int j = 0; j < TextCode.Length; j++)
+            {
+                char c = TextToChar[j];
+                buffer += c;
+                if (decodes.ContainsKey(buffer)){
+                    sw.Write(decodes[buffer]);
+                    buffer = "";
                 }
             }
-            BinaryReader br = new BinaryReader(fs);
-            
-            for(int i=0;i<fs.Length;i++)
-            {
-                br.ReadByte();
-            }
+            sw.Close();
             int s = 90;
             /*var file = File.OpenRead(path);
             byte[] buf = new byte[1024];
